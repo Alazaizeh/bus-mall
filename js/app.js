@@ -47,7 +47,10 @@ img3.addEventListener("click", vote);
 
 function vote(event) {
   if (attempts >= maxAttempts) {
-    showResult();
+    resultButton();
+    img1.removeEventListener("click", vote);
+    img2.removeEventListener("click", vote);
+    img3.removeEventListener("click", vote);
   } else {
     if (event.target.id === "img1") {
       products[img1Index].clicks++;
@@ -69,13 +72,21 @@ function showResult() {
   let li;
   for (let i = 0; i < products.length; i++) {
     li = document.createElement("li");
-    li.textContent = `${products[i].name} has ${products[i].views} views and has ${products[i].clicks} clicks. `;
+    li.textContent = `${products[i].name} has ${products[i].views} views and has ${products[i].clicks} vote. `;
     ul.appendChild(li);
   }
+  resultBtn.style.display = "none";
+  resultBtn.removeEventListener("click", showResult);
+}
 
-  img1.removeEventListener("click", vote);
-  img2.removeEventListener("click", vote);
-  img3.removeEventListener("click", vote);
+function resultButton() {
+  let body = document.getElementsByTagName("body")[0];
+  let resultBtn = document.createElement("button");
+  resultBtn.id = "resultBtn";
+  resultBtn.textContent = "Result";
+  body.appendChild(resultBtn);
+
+  resultBtn.addEventListener("click", showResult);
 }
 
 let imgsPath = [

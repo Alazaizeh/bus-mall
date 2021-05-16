@@ -25,14 +25,50 @@ header h1 {
 }
 .imgs {
   float: left;
-}
-#result {
-  width: 20%;
-  float: left;
+  margin-bottom: 100px;
 }
 
 h2 {
   clear: both;
   font-size: 24px;
   text-align: center;
+}
+
+#result {
+  width: 30%;
+  float: left;
+  margin: 20px 5px 20px 50px;
+  list-style: outside;
+  font-size: 24px;
+}
+#result li {
+  margin: 10px 0;
+  color: darkmagenta;
+}
+#resultDiv {
+  margin: 10px 0 10px 20px;
+}
+#resultDiv span {
+  font-size: 24px;
+  color: rgb(80, 2, 80);
+}
+p {
+  font-size: 24px;
+  color: rgb(80, 2, 80);
+  margin-bottom: 20px;
+}
+#attempts {
+  font-size: 32px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+button {
+  clear: both;
+  display: block;
+  margin: 10px auto 0;
+  background-color: rgb(80, 2, 80);
+  color: #fff;
+  font-size: 32px;
+  padding: 10px 15px;
 }
