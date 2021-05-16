@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+header {
+  height: 160px;
+  border: 2px SOLID black;
+}
+header img {
+  float: left;
+  height: 150px;
+}
+header h1 {
+  float: left;
+  font-size: 52px;
+  font-weight: bold;
+  margin: 40px 0 0 20px;
+}
+
+.imgs img {
+  width: 300px;
+  height: 300px;
+}
+.imgs div {
+  display: inline-block;
+}
+.imgs {
+  float: left;
+}
+#result {
+  width: 20%;
+  float: left;
+}
+
+h2 {
+  clear: both;
+  font-size: 24px;
+  text-align: center;
+}
