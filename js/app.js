@@ -70,21 +70,28 @@ function vote(event) {
 function showResult() {
   let ul = document.getElementById("result");
   let li;
+  let span;
   for (let i = 0; i < products.length; i++) {
     li = document.createElement("li");
-    li.textContent = `${products[i].name} has ${products[i].views} views and has ${products[i].clicks} vote. `;
+    span = document.createElement("span");
+    span.textContent = `${products[i].name}`;
+    span.id = "product-name";
+    li.appendChild(span);
+    span = document.createElement("span");
+    span.textContent = ` has ${products[i].views} views and has ${products[i].clicks} vote. `;
+    li.appendChild(span);
     ul.appendChild(li);
   }
-  resultBtn.style.display = "none";
+  // resultBtn.style.display = "none";
   resultBtn.removeEventListener("click", showResult);
 }
 
 function resultButton() {
-  let body = document.getElementsByTagName("body")[0];
+  let main = document.getElementsByTagName("main")[0];
   let resultBtn = document.createElement("button");
   resultBtn.id = "resultBtn";
   resultBtn.textContent = "Result";
-  body.appendChild(resultBtn);
+  main.appendChild(resultBtn);
 
   resultBtn.addEventListener("click", showResult);
 }
@@ -115,4 +122,3 @@ for (let i = 0; i < imgsPath.length; i++) {
   new product(imgsPath[i]);
 }
 render();
-console.log(products);

@@ -3,7 +3,9 @@
 }
 header {
   height: 160px;
-  border: 2px SOLID black;
+  border-bottom: 2px SOLID black;
+  background-color: #fff;
+  margin-bottom: 30px;
 }
 header img {
   float: left;
@@ -15,10 +17,19 @@ header h1 {
   font-weight: bold;
   margin: 40px 0 0 20px;
 }
-
+body {
+  background-color: #eee;
+}
 .imgs img {
   width: 300px;
   height: 300px;
+  margin: 0 10px;
+  border: purple solid 1px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+.imgs img:hover {
+  opacity: 0.8;
 }
 .imgs div {
   display: inline-block;
@@ -26,6 +37,8 @@ header h1 {
 .imgs {
   float: left;
   margin-bottom: 100px;
+  padding: 20px;
+  border-radius: 15px;
 }
 
 h2 {
@@ -35,14 +48,17 @@ h2 {
 }
 
 #result {
-  width: 30%;
+  width: 25%;
   float: left;
   margin: 20px 5px 20px 50px;
-  list-style: outside;
+  list-style: none;
   font-size: 24px;
+  background-color: #fff;
+  text-align: justify;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 #result li {
-  margin: 10px 0;
+  margin: 10px 20px;
   color: darkmagenta;
 }
 #resultDiv {
@@ -71,4 +87,24 @@ button {
   color: #fff;
   font-size: 32px;
   padding: 10px 15px;
+}
+
+button:hover {
+  background-color: rgb(51, 2, 51);
+  color: #fff;
+  cursor: pointer;
+}
+#product-name {
+  font-weight: bold;
+  color: black;
+  text-transform: capitalize;
+}
+footer p {
+  margin: 50px 0 20px;
+  clear: both;
+  text-align: center;
+}
+
+main div p {
+  margin-left: 10px;
 }
