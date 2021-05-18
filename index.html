@@ -24,18 +24,20 @@
           <span>Number of Votes</span>
           <span id="attempts">0</span>
         </div>
-        <ul id="result"></ul>
+        <ul style="visibility: hidden" id="result"></ul>
+
         <div class="imgs">
           <div><img id="img1" alt="img1" /></div>
           <div><img id="img2" alt="img2" /></div>
           <div><img id="img3" alt="img3" /></div>
         </div>
+        <div id="prevResultBtnDiv">
+          <button id="prevResultBtn">Previous Result</button>
+        </div>
       </div>
     </main>
-    <div class="chartDiv">
-      <canvas id="myChart" width="400" height="400"></canvas>
-    </div>
-    <footer><p>Copyright © 2021 All rights reserved.</p></footer>
+    <div style="display: none" class="chartDiv"></div>
+    <!-- <footer><p>Copyright © 2021 All rights reserved.</p></footer> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/app.js"></script>
   </body>

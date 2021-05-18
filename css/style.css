@@ -86,8 +86,7 @@ button {
   clear: both;
   position: absolute;
   top: 420px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   left: 0;
   right: 0;
   display: block;
@@ -96,7 +95,8 @@ button {
   font-size: 32px;
   padding: 10px 15px;
 }
-#resultBtnDiv {
+#resultBtnDiv,
+#prevResultBtnDiv {
   width: 100%;
   position: relative;
 }
@@ -123,4 +123,10 @@ main div p {
 .chartDiv {
   width: 1200px;
   margin: 0 auto;
+}
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
 }
