@@ -27,9 +27,12 @@ function product(path) {
   this.views = 0;
   products.push(this);
 }
+// generate random index used to display random image
 function getRandomIndex() {
   return Math.floor(Math.random() * imgsPath.length);
 }
+
+// render random images on site
 
 function render() {
   indexArr.push(img1Index);
@@ -67,7 +70,11 @@ img1.addEventListener("click", vote);
 img2.addEventListener("click", vote);
 img3.addEventListener("click", vote);
 
+
+// detect user clicks and increase each image clicks counter
 function vote(event) {
+  
+  // check if user clicked 25 time
   if (attempts >= maxAttempts) {
     resultButton();
     img1.removeEventListener("click", vote);
@@ -86,6 +93,7 @@ function vote(event) {
     attempts++;
     document.getElementById("attempts").textContent = attempts;
 
+    // detect if the user clicked his last click  
     if (attempts >= maxAttempts) {
       setCurrentData();
       resultButton();
@@ -97,6 +105,7 @@ function vote(event) {
       setPrevData();
       // setCurrentData(products, "prevProducts", attempts, "prevAttempts");
 
+      // remove event Listeners
       img1.removeEventListener("click", vote);
       img2.removeEventListener("click", vote);
       img3.removeEventListener("click", vote);
@@ -107,6 +116,7 @@ function vote(event) {
   }
 }
 
+// show the final result
 function showResult() {
   let ul = document.getElementById("result");
   ul.textContent = "";
@@ -147,8 +157,10 @@ function showResult() {
     document.getElementsByClassName("chartDiv")[0].style.display = "none";
   }
 
-  // resultBtn.removeEventListener("click", showResult);
 }
+
+// show the previous result
+
 function showPreResult() {
   let ul = document.getElementById("result");
   ul.textContent = "";
@@ -183,6 +195,7 @@ function showPreResult() {
     ul.appendChild(li);
   }
 
+  // hide previous result button if user didnt finished 25 clicks at least one time
   if (document.getElementById("result").style.visibility == "hidden") {
     document.getElementById("result").style.visibility = "visible";
     document.getElementsByClassName("chartDiv")[0].style.display = "block";
@@ -191,9 +204,9 @@ function showPreResult() {
     document.getElementsByClassName("chartDiv")[0].style.display = "none";
   }
 
-  // document.getElementById("prevResultBtnDiv").style.display = "none";
 }
 
+// show result button if user finished all 25 clicks
 function resultButton() {
   let main = document.getElementsByTagName("main")[0];
   let resultBtnDiv = document.createElement("div");
@@ -207,11 +220,13 @@ function resultButton() {
   resultBtn.addEventListener("click", showResult);
 }
 
+// show previous result button
 function prevResultButton() {
   let prevResultBtn = document.getElementById("prevResultBtn");
   prevResultBtn.addEventListener("click", showPreResult);
 }
 
+// render chart 
 function chartRender(chartId, labelsArr, viewsArr, VotesArr) {
   let canvasDiv = document.getElementsByClassName("chartDiv")[0];
   var ctx = document.createElement("canvas");
@@ -250,6 +265,7 @@ function chartRender(chartId, labelsArr, viewsArr, VotesArr) {
   });
 }
 
+// save every click on local storage 
 function setCurrentData() {
   let stringifiedObject = JSON.stringify(products);
   localStorage.setItem("products", stringifiedObject);
@@ -270,6 +286,7 @@ function getPrevData(productsKey) {
   }
 }
 
+// set the previous result on local storage and update it every time a new result shown
 function setPrevData() {
   let stringifiedObject = JSON.stringify(products);
   localStorage.setItem("prevProducts", stringifiedObject);
@@ -278,6 +295,7 @@ function setPrevData() {
   localStorage.setItem("prevAttempts", stringifiedAttempts);
 }
 
+//show the currently progress 
 function getCurrentData(productsKey, attemptsKey) {
   let stringifiedObject = localStorage.getItem(productsKey);
   let normalObject = JSON.parse(stringifiedObject);
@@ -330,6 +348,7 @@ for (let i = 0; i < imgsPath.length; i++) {
   new product(imgsPath[i]);
 }
 
+// functions calls
 getCurrentData("products", "attempts");
 getPrevData("prevProducts");
 render();
